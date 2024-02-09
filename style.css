@@ -1,0 +1,53 @@
+:root{
+    --soft-red:hsl(10,79%,65%);
+    --cyan:hsl(186,34%,60%);
+    --dark-brown:hsl(25,47%,15%);
+    --medium-brown:hsl(28,10%,53%);
+    --cream:hsl(27,66%,92%);
+    --pale-orange:hsl(33,100%,98%);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+}
+
+main{
+    max-width: 500px;
+    margin: 0  auto;
+}
+
+h1,h2,h3,p{
+    margin:0;
+}
+
+aside{
+    background: var(--soft-red);
+    padding: 1rem 2rem;
+}
+
+article{
+    background: var(--pale-orange);
+    padding: 2rem;
+}
+
+span{
+    display: inline-block;
+}
+
+.space-between{
+    text-align-last: justify;
+}
+
+.diagram *{
+    width: calc(90% / 7);
+}
+
+.diagram{
+    height:200px;
+}
