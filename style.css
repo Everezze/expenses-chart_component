@@ -44,10 +44,23 @@ span{
     text-align-last: justify;
 }
 
-.diagram *{
-    width: calc(90% / 7);
+.diagram span{
+    width: calc(75% / 7);
+    vertical-align: bottom;
+    background: crimson;
+    height:100%;
+    border-radius: .25rem;
 }
 
 .diagram{
     height:200px;
 }
+
+.diagram::after{
+    content:"";
+    height:100%;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: calc(28% / -7);
+}
+
