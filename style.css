@@ -1,6 +1,8 @@
 :root{
     --soft-red:hsl(10,79%,65%);
+    --soft-red-transparent:hsla(10,79%,65%,75%);
     --cyan:hsl(186,34%,60%);
+    --cyan-transparent:hsla(186,34%,60%,75%);
     --dark-brown:hsl(25,47%,15%);
     --medium-brown:hsl(28,10%,53%);
     --cream:hsl(27,66%,92%);
@@ -29,31 +31,71 @@ h1,h2,h3,p{
 aside{
     background: var(--soft-red);
     padding: 1rem 2rem;
+    border-radius: 1rem;
+    color: var(--pale-orange);
 }
 
 article{
     background: var(--pale-orange);
     padding: 2rem;
+    margin-top: 1.25rem;
+    border-radius: 1rem;
+}
+
+article > h2{
+    margin-bottom: 1.5rem;
 }
 
 span{
     display: inline-block;
 }
 
+h1{
+    margin-bottom: .5rem;
+}
+
+em,h1{
+    font-style:normal;
+    font-size: .9rem;
+    font-weight: normal;
+}
+
+em{
+    color:var(--medium-brown);
+}
+
 .space-between{
     text-align-last: justify;
+}
+
+.space-between *{
+    text-align-last: initial;
+}
+
+.diagram{
+    height:200px;
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2rem;
 }
 
 .diagram span{
     width: calc(75% / 7);
     vertical-align: bottom;
-    background: crimson;
+    background: var(--soft-red);
     height:100%;
     border-radius: .25rem;
 }
 
-.diagram{
-    height:200px;
+.diagram span:hover{
+    background: var(--soft-red-transparent);
+}
+
+
+.diagram span.today{
+    background: var(--cyan);
+}
+.diagram span.today:hover{
+    background: var(--cyan-transparent);
 }
 
 .diagram::after{
@@ -64,3 +106,15 @@ span{
     margin-right: calc(28% / -7);
 }
 
+.stats{
+    padding-top: 1.5rem;
+}
+
+.rate{
+    text-align-last:right;
+    font-size: .9rem;
+}
+
+.total-month{
+    font-size: 2.5rem;
+}
