@@ -7,6 +7,7 @@
     --medium-brown:hsl(28,10%,53%);
     --cream:hsl(27,66%,92%);
     --pale-orange:hsl(33,100%,98%);
+    --highest-bar: 52.36;
 }
 
 *{
@@ -17,11 +18,15 @@ body{
     margin: 0;
     font-family: "DM Sans", sans-serif;
     background: var(--cream);
+    display: flex;
+    align-items: center;
+    height: 100vh;
 }
 
 main{
     max-width: 500px;
     margin: 0  auto;
+    flex-grow: 1;
 }
 
 h1,h2,h3,p{
@@ -64,37 +69,40 @@ em{
     color:var(--medium-brown);
 }
 
-.space-between{
-    text-align-last: justify;
-}
-
 .space-between *{
     text-align-last: initial;
 }
 
+.space-between{
+    text-align-last: justify;
+}
+
+
 .diagram{
     height:200px;
-    border-bottom: 1px solid var(--cream);
-    padding-bottom: 2rem;
+}
+
+.diagram > *, .diagram + .days *{
+    width: calc(75% / 7);
+    vertical-align: bottom;
 }
 
 .diagram span{
-    width: calc(75% / 7);
-    vertical-align: bottom;
     background: var(--soft-red);
-    height:100%;
+    height: calc( (var(--price-value) /  var(--highest-bar)) * 10rem );
+    max-height: 100%;
     border-radius: .25rem;
+    position: relative;
 }
 
-.diagram span:hover{
+.diagram>span:hover{
     background: var(--soft-red-transparent);
 }
 
-
-.diagram span.today{
+.diagram>span.today{
     background: var(--cyan);
 }
-.diagram span.today:hover{
+.diagram>span.today:hover{
     background: var(--cyan-transparent);
 }
 
@@ -104,6 +112,45 @@ em{
     display: inline-block;
     vertical-align: bottom;
     margin-right: calc(28% / -7);
+}
+
+.diagram .price{
+    position: absolute;
+    border-radius: .25rem;
+    padding: .25rem;
+    font-weight:700;
+    color: var(--pale-orange);
+    background: var(--dark-brown);
+    top:-35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.diagram > *:hover .price{
+    display: block;
+}
+
+.mon{
+    --price-value: 17.45;
+}
+.tue{
+    --price-value: 34.91;
+}
+.wed{
+    --price-value: 52.36;
+}
+.thu{
+    --price-value: 31.07;
+}
+.fri{
+    --price-value: 23.39;
+}
+.sat{
+    --price-value: 43.28;
+}
+.sun{
+    --price-value: 25.48;
 }
 
 .stats{
@@ -117,4 +164,10 @@ em{
 
 .total-month{
     font-size: 2.5rem;
+}
+
+.days{
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 2rem;
+    text-align: center;
 }
